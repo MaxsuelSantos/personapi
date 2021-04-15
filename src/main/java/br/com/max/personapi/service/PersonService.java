@@ -3,11 +3,13 @@ package br.com.max.personapi.service;
 import br.com.max.personapi.dto.request.PersonDTO;
 import br.com.max.personapi.dto.response.MessageResponseDTO;
 import br.com.max.personapi.entity.Person;
+import br.com.max.personapi.exception.PersonNotFoundException;
 import br.com.max.personapi.mapper.PersonMapper;
 import br.com.max.personapi.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,5 +38,13 @@ public class PersonService {
         return all.stream()
                 .map(personMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+
+    public PersonDTO findById(Long id) throws PersonNotFoundException {
+        Person person = personRepository.findById(id)
+                .orElseThrow(() -> new PersonNotFoundException(id));
+
+        return personMapper.toDTO(person);
     }
 }

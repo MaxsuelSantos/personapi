@@ -3,6 +3,7 @@ package br.com.max.personapi.controller;
 import br.com.max.personapi.dto.request.PersonDTO;
 import br.com.max.personapi.dto.response.MessageResponseDTO;
 import br.com.max.personapi.entity.Person;
+import br.com.max.personapi.exception.PersonNotFoundException;
 import br.com.max.personapi.service.PersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -29,5 +30,10 @@ public class PersonController {
     @GetMapping
     public List<PersonDTO> listAll() {
         return personService.listAll();
+    }
+
+    @GetMapping("/{id}")
+    public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {
+        return personService.findById(id);
     }
 }
