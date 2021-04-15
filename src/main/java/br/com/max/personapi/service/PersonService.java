@@ -7,6 +7,9 @@ import br.com.max.personapi.mapper.PersonMapper;
 import br.com.max.personapi.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class PersonService {
 
@@ -26,5 +29,12 @@ public class PersonService {
                 .builder()
                 .message("Create person with id " + savedPerson.getId())
                 .build();
+    }
+
+    public List<PersonDTO> listAll() {
+        List<Person> all = personRepository.findAll();
+        return all.stream()
+                .map(personMapper::toDTO)
+                .collect(Collectors.toList());
     }
 }
