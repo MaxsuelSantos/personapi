@@ -13,7 +13,7 @@
 
 ## :bookmark: Sobre o projeto
 
-A API REST é um pequeno projeto de gerenciamento de pessoas, onde pode ser desenvolvido operações de gerenciamento de usuários (Cadastro, leitura, atualização e remoção de pessoas de um sistema). A estrutura é estabelecida no Heroku e provisionada no banco de dados H2. O link de back-end no Heroku pode ser acessado aqui:  https://peopleapi-max.herokuapp.com/
+A API REST é um pequeno projeto de gerenciamento de pessoas, onde podem ser desenvolvidas operações de gerenciamento de usuários (Cadastro, leitura, atualização e remoção de pessoas de um sistema). A estrutura é estabelecida no Heroku e provisionada no banco de dados H2. O link de back-end no Heroku pode ser acessado aqui:  https://peopleapi-max.herokuapp.com/
 
 ## :rocket: Tecnologias utilizadas
 
